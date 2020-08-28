@@ -20,6 +20,7 @@ namespace APP1_NET.Core.Infraestructure
         // Agregar todas las tablas / contexto
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Marca> Marca { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
 
         // Al realizar la migración obtendra las dos clases definidas y las va a convertir en tablas. 
     }
