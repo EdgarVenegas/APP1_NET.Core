@@ -4,6 +4,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Edgar Venegas\¡Respaldo\Documentos\`Axsis Tecnologia\Proyectos\Cursos\ASP .NET Core\Proyectos\APP1_NET.Core\APP1_NET.Core\APP1_NET.Core.xml</DocumentationFile>
+    <NoWarn>1701;1702; 1591</NoWarn>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />

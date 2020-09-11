@@ -5,13 +5,15 @@ using System.Threading.Tasks;
 using APP1_NET.Core.DTO;
 using APP1_NET.Core.Repository.IRepository;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APP1_NET.Core.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Categoria")]
     [ApiController]
+    [ApiExplorerSettings(GroupName = "CatalogosCategoriasAPI")]
     public class CategoriaController : ControllerBase
     {
         
@@ -22,15 +24,18 @@ namespace APP1_NET.Core.Controllers
         // - AutoMapper
         private readonly IMapper _Mapper;
 
-
         public CategoriaController(ICategoriaRepository CategoriaRepository, IMapper Mapper)
         {
             _CategoriaRepo = CategoriaRepository;
             _Mapper = Mapper;
         }
 
-
+        /// <summary>
+        /// Obtiene una categoria
+        /// </summary>
+        /// <returns></returns>
         // Petición Get
+        [Authorize]
         [HttpGet]
         public ActionResult GetCategoria()
         {
@@ -44,7 +49,6 @@ namespace APP1_NET.Core.Controllers
 
             return Ok(LstCategoriaLDTO);
         }
-
 
         [HttpGet("{IdCategoria:int}", Name = "GetCategoria")]
         public ActionResult GetCategoria(int IdCategoria)

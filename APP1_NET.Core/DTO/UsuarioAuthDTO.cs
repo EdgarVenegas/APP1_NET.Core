@@ -11,12 +11,12 @@ namespace APP1_NET.Core.DTO
         [Key]
         public int IdUsuario { get; set; }
         
-        [Required]
+        [Required (ErrorMessage = "El nombre de usuario Correo o Guid es necesario")]
         public string ClientId { get; set; }
         
         //Password
-        [Required]
-        [StringLength(12, MinimumLength = 6)]
+        [Required (ErrorMessage = "La contraseña es requerida")]
+        [StringLength(12, MinimumLength = 6, ErrorMessage = "Longitud no valida debe ser entre 6 y 12")]
         public string Password { get; set; }
     }
 }

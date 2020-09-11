@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>APP1_NET.Core</name>
+    </assembly>
+    <members>
+        <member name="M:APP1_NET.Core.Controllers.CategoriaController.GetCategoria">
+            <summary>
+            Obtiene una categoria
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

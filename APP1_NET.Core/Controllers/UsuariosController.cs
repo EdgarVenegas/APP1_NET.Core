@@ -20,6 +20,7 @@ namespace APP1_NET.Core.Controllers
 {
     [Route("api/Usuarios")]
     [ApiController]
+    [ApiExplorerSettings(GroupName = "APIUsuariosCatalogo")]
     public class UsuariosController : ControllerBase
     {
         private readonly IUsuarioRepository _usuarioRepo;
@@ -35,6 +36,8 @@ namespace APP1_NET.Core.Controllers
 
         [Authorize]
         [HttpGet]
+        [ProducesResponseType(200, Type = typeof(List<UsuarioDTO>))]
+        [ProducesResponseType(400, Type = typeof(List<UsuarioDTO>))]
         public ActionResult GetUsuarios()
         {
             var LstUsuario = _usuarioRepo.GetUsuarios();
@@ -66,6 +69,10 @@ namespace APP1_NET.Core.Controllers
         }
 
         [HttpPost("Registrar")]
+        [ProducesResponseType(200, Type = typeof(int))]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult Registrar(UsuarioAuthDTO DatosRegistro)
         {
             if(_usuarioRepo.ExisteUsuario(DatosRegistro.ClientId.ToLower()))
